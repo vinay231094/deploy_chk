@@ -7,7 +7,7 @@ from deploy_chk.predict import make_prediction
 
 def test_make_prediction(sample_input_data):
     # Given
-    expected_no_predictions = 41088
+    expected_no_predictions = 250
 
     # When
     result = make_prediction(input_data=sample_input_data)
