@@ -8,7 +8,7 @@ set -e
 
 DIRS="$@"
 BASE_DIR=$(pwd)
-SETUP="setup.py"
+SETUP="setup"
 
 warn() {
     echo "$@" 1>&2
