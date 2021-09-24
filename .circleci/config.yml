@@ -59,6 +59,10 @@ jobs:
           path: ~/project
       - *prepare_tox
       - run:
+          name: Test the model
+          command: |
+            tox -e tests
+      - run:
           name: Publish model to Gemfury
           command: |
             tox -e publish_model
@@ -181,8 +185,17 @@ workflows:
   version: 2
   section_07:
     jobs:
+      - section_07_test_app
+      - section_07_deploy_app_to_heroku:
+          requires:
+            - section_07_test_app
+          filters:
+            branches:
+              only:
+                - master
       # upload after git tags are created
-      - section_07_test_and_upload_regression_model
+      - section_07_test_and_upload_regression_model:
+          <<: *tags_only
 
 #  test-all:
 #    jobs:
