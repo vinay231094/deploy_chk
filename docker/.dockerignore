@@ -1,0 +1,10 @@
+jupyter_notebooks*
+*/env*
+*/venv*
+.circleci*
+packages/deploy_chk
+*.env
+*.log
+.git
+.gitignore
+.tox
